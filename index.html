@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hire Donnie’s Band</title>
+
+    <!-- Optional: swap these for your own hosted fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500,650,750&family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root{
+        /* Brand palette */
+        --noir:#0b0b10;
+        --noir-2:#12121a;
+        --violet:#8a2be2;
+        --violet-2:#b066ff;
+
+        /* Dark editorial */
+        --ink:#f1f1f7;
+        --ink-2:#e7e7f0;
+        --muted:rgba(241,241,247,.72);
+        --muted-2:rgba(241,241,247,.60);
+
+        /* Lines / surfaces */
+        --line:rgba(255,255,255,.12);
+        --line-2:rgba(255,255,255,.18);
+        --surface:rgba(255,255,255,.03);
+        --surface-2:rgba(255,255,255,.02);
+
+        /* Geometry */
+        --r-lg:24px;
+        --r-md:18px;
+
+        /* Layout */
+        --max: 1200px;
+        --gutter: clamp(18px, 3vw, 28px);
+        --section: clamp(74px, 9vw, 112px);
+      }
+
+      *{ box-sizing:border-box; }
+      html{ scroll-behavior:smooth; }
+      body{
+        margin:0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+        color: var(--ink);
+        background:
+          radial-gradient(1200px 800px at 15% 10%, rgba(138,43,226,.22), transparent 55%),
+          radial-gradient(900px 600px at 80% 20%, rgba(176,102,255,.16), transparent 55%),
+          linear-gradient(180deg, var(--noir) 0%, #07070b 100%);
+        line-height: 1.55;
+      }
+      a{ color:inherit; text-decoration:none; }
+      a:focus, button:focus { outline: 2px solid rgba(176,102,255,.55); outline-offset: 3px; }
+      ::selection{ background: rgba(176,102,255,.25); }
+
+      .container{ width:min(var(--max), calc(100% - 2*var(--gutter))); margin-inline:auto; }
+
+      /* Editorial type */
+      .kicker{
+        font-size:.78rem;
+        letter-spacing:.14em;
+        text-transform:uppercase;
+        color: var(--muted-2);
+        margin:0 0 10px 0;
+      }
+      h1, h2, h3{
+        font-family: Fraunces, ui-serif, Georgia, serif;
+        letter-spacing: -.03em;
+        margin:0;
+      }
+      h1{
+        font-size: clamp(2.6rem, 4.8vw, 4.4rem);
+        line-height: 1.01;
+      }
+      h2{
+        font-size: clamp(1.8rem, 2.4vw, 2.35rem);
+        line-height: 1.12;
+      }
+      .lede{
+        font-size: clamp(1.06rem, 1.2vw, 1.18rem);
+        color: var(--muted);
+        max-width: 70ch;
+        margin: 0;
+      }
+      .small{
+        font-size:.98rem;
+        color: var(--muted-2);
+      }
+
+      /* Nav */
+      .nav{
+        position: fixed;
+        inset: 0 0 auto 0;
+        z-index: 50;
+        background: rgba(11,11,16,.62);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav-inner{
+        height: 68px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap: 18px;
+      }
+      .brand{
+        display:flex; align-items:center; gap: 12px;
+        font-weight: 800;
+        letter-spacing: -.01em;
+      }
+      .brand-mark{
+        width: 34px; height: 34px; border-radius: 10px;
+        background: conic-gradient(from 200deg, var(--violet), var(--violet-2), #4d6bff, var(--violet));
+        box-shadow: 0 10px 30px rgba(138,43,226,.18);
+        flex: 0 0 auto;
+      }
+      .nav-links{
+        display:flex; align-items:center; gap: 18px;
+        font-weight: 650;
+      }
+      .nav-links a{
+        padding: .35rem .45rem;
+        border-radius: 10px;
+        color: rgba(241,241,247,.88);
+      }
+      .nav-links a:hover{ background: rgba(255,255,255,.05); }
+
+      /* Buttons */
+      .btn{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        gap: .55rem;
+        border-radius: 999px;
+        padding: .95rem 1.15rem;
+        font-weight: 850;
+        border: 1px solid transparent;
+        cursor:pointer;
+        background: transparent;
+        line-height: 1;
+        white-space: nowrap;
+      }
+      .btn-primary{
+        background: linear-gradient(90deg, var(--violet), var(--violet-2));
+        color: #0b0b10;
+        border: 0;
+      }
+      .btn-primary:hover{ filter: brightness(1.03); }
+      .btn-sm{ padding:.62rem .92rem; font-weight: 850; }
+
+      /* Dividers */
+      .divider{
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
+      }
+
+      /* HERO with video background placeholder */
+      .hero{
+        padding-top: 88px; /* nav offset */
+        padding-bottom: var(--section);
+      }
+      .hero-video-shell{
+        position: relative;
+        border-radius: var(--r-lg);
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: rgba(255,255,255,.02);
+        box-shadow: 0 22px 70px rgba(0,0,0,.45);
+        min-height: clamp(520px, 62vh, 720px);
+      }
+
+      /* Placeholder video layer */
+      .hero-video{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        object-fit: cover;
+        display:block;
+        /* Remove this background when you add a real video */
+        background:
+          radial-gradient(900px 600px at 18% 20%, rgba(138,43,226,.32), transparent 55%),
+          radial-gradient(700px 500px at 85% 10%, rgba(176,102,255,.20), transparent 55%),
+          linear-gradient(180deg, rgba(8,8,12,.8) 0%, rgba(0,0,0,.92) 100%);
+      }
+
+      /* Contrast overlay for text legibility */
+      .hero-overlay{
+        position:absolute;
+        inset:0;
+        background:
+          linear-gradient(90deg, rgba(0,0,0,.80) 0%, rgba(0,0,0,.55) 45%, rgba(0,0,0,.25) 100%),
+          linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.55) 100%);
+        pointer-events:none;
+      }
+
+      .hero-content{
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        display:flex;
+        align-items:flex-end;
+      }
+      .hero-inner{
+        padding: clamp(22px, 3.2vw, 44px);
+        max-width: 62rem;
+      }
+
+      .pill-row{ display:flex; flex-wrap:wrap; gap: 10px; margin: 0 0 18px 0; }
+      .pill{
+        border: 1px solid rgba(255,255,255,.14);
+        background: rgba(255,255,255,.04);
+        color: rgba(241,241,247,.78);
+        border-radius: 999px;
+        padding: .42rem .78rem;
+        font-size: .92rem;
+      }
+
+      .accent-rule{
+        height: 1px;
+        background: linear-gradient(90deg, rgba(138,43,226,.0), rgba(138,43,226,.55), rgba(176,102,255,.55), rgba(138,43,226,.0));
+        margin: 22px 0 18px 0;
+      }
+
+      /* Sections */
+      .section{ padding: var(--section) 0; }
+      .section-head{
+        display:grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: clamp(22px, 2.2vw, 34px);
+      }
+
+      /* About: flat, border-first */
+      .about-grid{
+        display:grid;
+        grid-template-columns: 1.05fr .95fr;
+        gap: clamp(18px, 3vw, 34px);
+        align-items:start;
+      }
+      .flat-card{
+        border: 1px solid var(--line);
+        border-radius: var(--r-md);
+        padding: 18px;
+        background: rgba(255,255,255,.03);
+      }
+      .flat-card h3{
+        font-family: Inter, ui-sans-serif, system-ui;
+        letter-spacing: -.01em;
+        font-weight: 850;
+        font-size: 1rem;
+        margin: 0 0 6px 0;
+      }
+      .tag-row{ display:flex; flex-wrap:wrap; gap: 10px; margin-top: 12px; }
+
+      /* Services: statement rows */
+      .pricing-grid{
+        display:grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-top: 22px;
+      }
+      .row-card{
+        border: 1px solid var(--line);
+        border-radius: var(--r-md);
+        background: rgba(255,255,255,.02);
+        padding: 18px;
+      }
+      .row-top{
+        display:grid;
+        grid-template-columns: 1.15fr .55fr;
+        gap: 16px;
+        align-items:start;
+      }
+      .row-title{
+        display:flex;
+        align-items:center;
+        gap: 10px;
+        flex-wrap:wrap;
+      }
+      .row-title h3{
+        font-size: 1.25rem;
+        line-height: 1.15;
+      }
+      .row-desc{
+        margin: 6px 0 0 0;
+        color: rgba(241,241,247,.74);
+        max-width: 68ch;
+      }
+      .badge{
+        display:inline-flex;
+        align-items:center;
+        border-radius: 999px;
+        padding: .35rem .6rem;
+        font-weight: 900;
+        color: #0b0b10;
+        background: linear-gradient(90deg, var(--violet), var(--violet-2));
+        letter-spacing: -.01em;
+        font-size: .85rem;
+      }
+      .price{
+        text-align:right;
+      }
+      .price strong{
+        display:block;
+        font-family: Fraunces, ui-serif, Georgia, serif;
+        font-size: 2.1rem;
+        letter-spacing: -.03em;
+        line-height: 1.05;
+      }
+      .price span{
+        color: rgba(241,241,247,.65);
+        font-weight: 600;
+      }
+      .bullets{
+        margin: 12px 0 0 0;
+        padding-left: 1.1rem;
+      }
+      .bullets li{
+        margin: .38rem 0;
+        color: rgba(241,241,247,.70);
+      }
+      .row-actions{
+        display:flex;
+        justify-content:space-between;
+        gap: 14px;
+        flex-wrap:wrap;
+        margin-top: 14px;
+        align-items:center;
+      }
+      .note{
+        color: rgba(241,241,247,.62);
+        font-size: .95rem;
+      }
+
+      footer{
+        padding: 28px 0;
+        color: rgba(241,241,247,.62);
+        border-top: 1px solid rgba(255,255,255,.12);
+        background: rgba(0,0,0,.20);
+      }
+      .footer-row{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap: 12px;
+        flex-wrap:wrap;
+      }
+
+      /* Responsive */
+      @media (max-width: 920px){
+        .about-grid{ grid-template-columns: 1fr; }
+        .row-top{ grid-template-columns: 1fr; }
+        .price{ text-align:left; }
+        .nav-links a{ display:none; }
+        .nav-links .btn{ display:inline-flex; }
+        .hero-content{ align-items:flex-end; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Nav -->
+    <nav class="nav" aria-label="Primary">
+      <div class="container">
+        <div class="nav-inner">
+          <a class="brand" href="#top">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span>Donnie’s Band</span>
+          </a>
+
+          <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a class="btn btn-sm btn-primary" href="#services">View Pricing</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero with video background placeholder -->
+    <header id="top" class="hero">
+      <div class="container">
+        <section class="hero-video-shell" aria-label="Hero video">
+          <!--
+            VIDEO BACKGROUND PLACEHOLDER:
+            Replace the empty <video> with your asset.
+            Example:
+              <video class="hero-video" autoplay muted loop playsinline poster="poster.jpg">
+                <source src="assets/hero.mp4" type="video/mp4" />
+              </video>
+          -->
+          <video class="hero-video" autoplay muted loop playsinline>
+            <!-- Intentionally empty. Add your <source> here. -->
+          </video>
+
+          <div class="hero-overlay" aria-hidden="true"></div>
+
+          <div class="hero-content">
+            <div class="hero-inner">
+              <div class="pill-row" aria-label="Highlights">
+                <span class="pill">Live band</span>
+                <span class="pill">Weddings • Corporate • Private events</span>
+                <span class="pill">NYC + travel</span>
+              </div>
+
+              <p class="kicker">Premium performances, effortless booking</p>
+
+              <h1>Make your event feel like a headline.</h1>
+
+              <div class="accent-rule" aria-hidden="true"></div>
+
+              <p class="lede">
+                Full-stage energy for dance floors, refined acoustic sets for cocktails, and studio sessions for artists
+                and brands. Choose the scale, lock the date, then fine-tune the setlist.
+              </p>
+
+              <div style="height:18px"></div>
+
+              <!-- Single button on hero -->
+              <a class="btn btn-primary" href="#services">Explore services</a>
+
+              <p class="small" style="margin-top:14px;">
+                Transparent packages. Add-ons available. Retainers for weekly bookings.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>About</h2>
+          <p class="lede">
+            Built for high-stakes moments: entrances, toasts, dance floors, and the last song people remember on the ride home.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="flat-card">
+            <h3>What you get</h3>
+            <p class="lede" style="margin-top:0;">
+              A polished, venue-ready performance with flexible instrumentation and clear communication. We keep the process
+              simple and the execution precise.
+            </p>
+
+            <div class="tag-row" aria-label="What you can expect">
+              <span class="pill">Fast responses</span>
+              <span class="pill">Clear deliverables</span>
+              <span class="pill">Upgrade-friendly</span>
+              <span class="pill">Retainer-ready</span>
+            </div>
+          </div>
+
+          <div class="flat-card">
+            <h3>Best for</h3>
+            <p class="lede" style="margin-top:0;">
+              Weddings, corporate events, private parties, lounges, and recurring residencies. Choose the scale you need,
+              then expand with add-ons only if it improves the night.
+            </p>
+
+            <div class="accent-rule" aria-hidden="true" style="margin: 16px 0 12px 0;"></div>
+
+            <p class="small" style="margin:0;">
+              Booking philosophy: pick a package, lock the date, then refine the setlist and flow.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <!-- Services -->
+    <section id="services" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Services</h2>
+          <p class="lede">
+            Choose a package. Pricing is a starting point; travel, extended time, and specialty requests can be added.
+          </p>
+        </div>
+
+        <div class="pricing-grid" aria-label="Service options">
+          <!-- Full band -->
+          <article class="row-card">
+            <div class="row-top">
+              <div>
+                <div class="row-title">
+                  <h3>The Band (Full Performance)</h3>
+                  <span class="badge">Signature</span>
+                </div>
+                <p class="row-desc">The full lineup for big moments and packed dance floors.</p>
+              </div>
+
+              <div class="price" aria-label="Price">
+                <strong>$10,000</strong>
+                <span>flat</span>
+              </div>
+            </div>
+
+            <ul class="bullets">
+              <li>Full band performance block</li>
+              <li>Setlist planning + event flow support</li>
+              <li>Soundcheck + coordination with venue</li>
+              <li>Ideal for weddings + corporate showcases</li>
+            </ul>
+
+            <div class="row-actions">
+              <a class="btn btn-primary btn-sm" href="#services" data-plan="full-band">Book this</a>
+              <div class="note">Tip: Add horns, extra vocalist, or longer set time as upgrades.</div>
+            </div>
+          </article>
+
+          <!-- Acoustic duo -->
+          <article class="row-card">
+            <div class="row-top">
+              <div>
+                <div class="row-title">
+                  <h3>Acoustic Duo</h3>
+                </div>
+                <p class="row-desc">A tighter, elegant setup for cocktails and intimate rooms.</p>
+              </div>
+
+              <div class="price">
+                <strong>$2,500</strong>
+                <span>starting</span>
+              </div>
+            </div>
+
+            <ul class="bullets">
+              <li>Two performers (vocals + guitar/keys)</li>
+              <li>Perfect for cocktail hour and lounges</li>
+              <li>Low footprint, quick setup</li>
+              <li>Optional curated “vibes” setlist</li>
+            </ul>
+
+            <div class="row-actions">
+              <a class="btn btn-outline btn-sm" href="#services" data-plan="acoustic-duo" style="border-color: rgba(255,255,255,.22); background: rgba(255,255,255,.02); color: rgba(241,241,247,.92);">Select</a>
+              <div class="note">Best when the room needs atmosphere more than volume.</div>
+            </div>
+          </article>
+
+          <!-- Studio session -->
+          <article class="row-card">
+            <div class="row-top">
+              <div>
+                <div class="row-title">
+                  <h3>Studio Session</h3>
+                </div>
+                <p class="row-desc">Hire Donnie and/or band members for recording and production support.</p>
+              </div>
+
+              <div class="price">
+                <strong>$1,200</strong>
+                <span>per session</span>
+              </div>
+            </div>
+
+            <ul class="bullets">
+              <li>Session performance (instrument/vocals)</li>
+              <li>Arrangement ideas + tight takes</li>
+              <li>Remote or in-studio (by request)</li>
+              <li>Great for artists, ads, and content</li>
+            </ul>
+
+            <div class="row-actions">
+              <a class="btn btn-outline btn-sm" href="#services" data-plan="studio-session" style="border-color: rgba(255,255,255,.22); background: rgba(255,255,255,.02); color: rgba(241,241,247,.92);">Select</a>
+              <div class="note">Designed for speed, clarity, and clean deliverables.</div>
+            </div>
+          </article>
+
+          <!-- Weekly retainer -->
+          <article class="row-card">
+            <div class="row-top">
+              <div>
+                <div class="row-title">
+                  <h3>Weekly Retainer</h3>
+                </div>
+                <p class="row-desc">For venues, residencies, and recurring private events.</p>
+              </div>
+
+              <div class="price">
+                <strong>$1,500</strong>
+                <span>/ week</span>
+              </div>
+            </div>
+
+            <ul class="bullets">
+              <li>Priority scheduling each week</li>
+              <li>Consistent lineup and sound</li>
+              <li>Flexible set lengths (with add-ons)</li>
+              <li>Best value for ongoing bookings</li>
+            </ul>
+
+            <div class="row-actions">
+              <a class="btn btn-primary btn-sm" href="#services" data-plan="weekly-retainer">Start retainer</a>
+              <div class="note">Retainers are billed weekly; dates/times confirmed in advance.</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-row">
+          <div>© <span id="year"></span> Donnie’s Band</div>
+          <div class="small">BlueViolet • Violet • Noir</div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
