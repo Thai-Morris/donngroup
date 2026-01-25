@@ -160,53 +160,57 @@
         background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
       }
 
-      /* HERO with video background placeholder */
       .hero{
-        padding-top: 88px; /* nav offset */
-        padding-bottom: var(--section);
-      }
-      .hero-video-shell{
-        position: relative;
-        border-radius: var(--r-lg);
-        overflow: hidden;
-        border: 1px solid var(--line);
-        background: rgba(255,255,255,.02);
-        box-shadow: 0 22px 70px rgba(0,0,0,.45);
-        min-height: clamp(520px, 62vh, 720px);
-      }
+  position: relative;
+  min-height: 92vh;          /* responsive hero height */
+  padding-top: 88px;         /* nav offset */
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+}
 
-      /* Placeholder video layer */
-      .hero-video{
-        position:absolute;
-        inset:0;
-        width:100%;
-        height:100%;
-        object-fit: cover;
-        display:block;
-        /* Remove this background when you add a real video */
-        background:
-          radial-gradient(900px 600px at 18% 20%, rgba(138,43,226,.32), transparent 55%),
-          radial-gradient(700px 500px at 85% 10%, rgba(176,102,255,.20), transparent 55%),
-          linear-gradient(180deg, rgba(8,8,12,.8) 0%, rgba(0,0,0,.92) 100%);
-      }
+/* The video fills the entire hero */
+.hero-video{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02); /* tiny scale to avoid edge gaps on some devices */
+}
 
-      /* Contrast overlay for text legibility */
-      .hero-overlay{
-        position:absolute;
-        inset:0;
-        background:
-          linear-gradient(90deg, rgba(0,0,0,.80) 0%, rgba(0,0,0,.55) 45%, rgba(0,0,0,.25) 100%),
-          linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.55) 100%);
-        pointer-events:none;
-      }
+/* Overlay to keep text readable on bright footage */
+.hero-overlay{
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(900px 600px at 20% 25%, rgba(138,43,226,.22), transparent 60%),
+    linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.70) 55%, rgba(0,0,0,.78) 100%),
+    linear-gradient(90deg, rgba(0,0,0,.72) 0%, rgba(0,0,0,.38) 55%, rgba(0,0,0,.18) 100%);
+  pointer-events: none;
+}
 
-      .hero-content{
-        position: relative;
-        z-index: 2;
-        height: 100%;
-        display:flex;
-        align-items:flex-end;
-      }
+/* Only headline + button */
+.hero-content{
+  position: relative;
+  z-index: 2;
+  width: min(var(--max), calc(100% - 2*var(--gutter)));
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  padding: clamp(22px, 3.2vw, 44px) 0;
+}
+
+/* Keep headline crisp and not too wide */
+.hero h1{
+  max-width: 18ch;
+  font-size: clamp(2.6rem, 5.2vw, 4.7rem);
+  line-height: 1.01;
+  margin: 0;
+}
       .hero-inner{
         padding: clamp(22px, 3.2vw, 44px);
         max-width: 62rem;
@@ -387,30 +391,17 @@
     <!-- Hero with video background placeholder -->
     <header id="top" class="hero">
       <div class="container">
-        <section class="hero-video-shell" aria-label="Hero video">
-          <!--
-            VIDEO BACKGROUND PLACEHOLDER:
-            Replace the empty <video> with your asset.
-            Example:
-              <video class="hero-video" autoplay muted loop playsinline poster="poster.jpg">
-                <source src="assets/hero.mp4" type="video/mp4" />
+        <section class="hero-video" aria-label="Hero video">
+            <!-- note convert to webm and what is  poster="poster.jpg" -->
+              <video  class="hero-video" autoplay muted loop playsinline>
+                <source src="thevideo.mp4" type="video/mp4" />
               </video>
-          -->
-          <video class="hero-video" autoplay muted loop playsinline>
-            <!-- Intentionally empty. Add your <source> here. -->
-          </video>
+          <div class="hero-overlay" aria-hidden="true">
 
-          <div class="hero-overlay" aria-hidden="true"></div>
+          </div>
 
           <div class="hero-content">
-            <div class="hero-inner">
-              <div class="pill-row" aria-label="Highlights">
-                <span class="pill">Live band</span>
-                <span class="pill">Weddings • Corporate • Private events</span>
-                <span class="pill">NYC + travel</span>
-              </div>
-
-              <p class="kicker">Premium performances, effortless booking</p>
+    
 
               <h1>Make your event feel like a headline.</h1>
 
@@ -426,9 +417,7 @@
               <!-- Single button on hero -->
               <a class="btn btn-primary" href="#services">Explore services</a>
 
-              <p class="small" style="margin-top:14px;">
-                Transparent packages. Add-ons available. Retainers for weekly bookings.
-              </p>
+             
             </div>
           </div>
         </section>
