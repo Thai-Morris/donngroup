@@ -270,6 +270,25 @@
         gap: 12px;
         margin-bottom: clamp(22px, 2.2vw, 34px);
       }
+          
+      #services .service-img{
+        width: 100%;
+        max-width: 520px;
+        height: auto;
+        display: block;
+        margin: 10px 0 12px 0;
+        border-radius: 16px;
+        border: 1px solid var(--line);
+        background: rgba(255,255,255,.02);
+      }
+      #services .price .service-img{ margin-left: auto; }
+
+      @media (max-width: 920px){
+        #services .service-img{
+          max-width: 100%;
+          margin: 12px 0 10px 0;
+        }
+      }
 
       /* About: flat, border-first */
       .about-grid{
@@ -605,11 +624,8 @@
           <div class="flat-card">
             <h3>What you get</h3>
             <p class="lede" style="margin-top:0;">
-              
-
-            <div class="tag-row" aria-label="What you can expect">
-              (imma put a photo here)>
-            </div>
+            
+              <img loading="lazy" src="donniepose.jpg" alt="Donnie (D-Major)">
           </div>
 
           <div class="flat-card">
@@ -655,6 +671,7 @@
                   <h3>The Band (Full Performance)</h3>
                   <span class="badge">Signature</span>
                 </div>
+                                 <img class="service-img" loading="lazy" src="band.jpg" alt="Donnie's Band">
                 <p class="row-desc">The full lineup for big moments and packed dance floors.</p>
               </div>
 
@@ -684,6 +701,7 @@
                 <div class="row-title">
                   <h3>Acoustic Duo</h3>
                 </div>
+                <img class="service-img" loading="lazy" src="donnieplaying.jpg" alt="Donnie's Duo">
                 <p class="row-desc">A tighter, elegant setup for cocktails and intimate rooms.</p>
               </div>
 
@@ -721,7 +739,8 @@
               <div>
                 <div class="row-title">
                   <h3>Studio Session</h3>
-                </div>
+                </div>  
+                    <img class="service-img" loading="lazy" src="noiredonnie.jpg" alt="Donnie (studio session)">
                 <p class="row-desc">Hire Donnie and/or band members for recording and production support.</p>
               </div>
 
@@ -751,6 +770,7 @@
                 <div class="row-title">
                   <h3>Weekly Retainer</h3>
                 </div>
+                <img class="service-img" loading="lazy" src="band2.jpg" alt="Donnie's Weekly Sessions">
                 <p class="row-desc">For venues, residencies, and recurring private events.</p>
               </div>
 
@@ -798,7 +818,7 @@
       <div class="container">
         <div class="footer-row">
           <div>© <span id="year"></span> Donnie’s Band</div>
-          <div class="small">BlueViolet • Violet • Noir</div>
+          <div class="small">Made with love by...</div>
         </div>
       </div>
     </footer>
