@@ -1,0 +1,125 @@
+<svg width="800" height="300" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bodyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a1a;stop-opacity:1" />
+    </linearGradient>
+    <rect id="whiteKey" width="28" height="140" fill="#fcfcfc" stroke="#ccc" stroke-width="1" rx="2" />
+    <rect id="blackKey" width="16" height="90" fill="#111" stroke="#000" stroke-width="1" rx="1" />
+  </defs>
+
+  <rect x="10" y="10" width="780" height="280" rx="30" ry="30" fill="url(#bodyGradient)" stroke="#000" stroke-width="4" />
+
+  <rect x="50" y="40" width="120" height="60" rx="10" fill="#444" stroke="#222" stroke-width="2"/>
+  <ellipse cx="110" cy="70" rx="40" ry="15" fill="#222" />
+  
+  <rect x="630" y="40" width="120" height="60" rx="10" fill="#444" stroke="#222" stroke-width="2"/>
+  <ellipse cx="690" cy="70" rx="40" ry="15" fill="#222" />
+
+  <rect x="190" y="40" width="120" height="70" rx="5" fill="#3a3a3a" stroke="#222" />
+  <g stroke="#999" stroke-width="2" stroke-linecap="round">
+    <line x1="205" y1="50" x2="205" y2="70" />
+    <circle cx="205" cy="70" r="3" fill="#666" stroke="none"/>
+    <line x1="220" y1="50" x2="220" y2="65" />
+    <circle cx="220" cy="65" r="3" fill="#666" stroke="none"/>
+    <line x1="235" y1="50" x2="235" y2="75" />
+    <circle cx="235" cy="75" r="3" fill="#666" stroke="none"/>
+    <line x1="250" y1="50" x2="250" y2="60" />
+    <circle cx="250" cy="60" r="3" fill="#666" stroke="none"/>
+    <line x1="265" y1="50" x2="265" y2="70" />
+    <circle cx="265" cy="70" r="3" fill="#666" stroke="none"/>
+    <line x1="280" y1="50" x2="280" y2="55" />
+    <circle cx="280" cy="55" r="3" fill="#666" stroke="none"/>
+    <line x1="295" y1="50" x2="295" y2="65" />
+    <circle cx="295" cy="65" r="3" fill="#666" stroke="none"/>
+  </g>
+  <g fill="#555">
+    <circle cx="210" cy="90" r="4" />
+    <circle cx="230" cy="90" r="4" />
+    <circle cx="250" cy="90" r="4" />
+    <circle cx="270" cy="90" r="4" />
+    <circle cx="290" cy="90" r="4" />
+  </g>
+
+  <rect x="330" y="35" width="140" height="40" rx="5" fill="#4DD0E1" stroke="#222" stroke-width="2"/>
+  <g fill="#666">
+    <circle cx="340" cy="90" r="5" />
+    <circle cx="360" cy="90" r="5" />
+    <circle cx="380" cy="90" r="5" />
+    <circle cx="400" cy="90" r="5" />
+    <circle cx="420" cy="90" r="5" />
+    <circle cx="440" cy="90" r="5" />
+    <circle cx="460" cy="90" r="5" />
+  </g>
+
+  <rect x="490" y="40" width="120" height="70" rx="5" fill="#3a3a3a" stroke="#222" />
+   <g stroke="#999" stroke-width="2" stroke-linecap="round">
+    <line x1="505" y1="50" x2="505" y2="70" />
+    <circle cx="505" cy="70" r="3" fill="#666" stroke="none"/>
+    <line x1="520" y1="50" x2="520" y2="65" />
+    <circle cx="520" cy="65" r="3" fill="#666" stroke="none"/>
+    <line x1="535" y1="50" x2="535" y2="75" />
+    <circle cx="535" cy="75" r="3" fill="#666" stroke="none"/>
+    <line x1="550" y1="50" x2="550" y2="60" />
+    <circle cx="550" cy="60" r="3" fill="#666" stroke="none"/>
+    <line x1="565" y1="50" x2="565" y2="70" />
+    <circle cx="565" cy="70" r="3" fill="#666" stroke="none"/>
+    <line x1="580" y1="50" x2="580" y2="55" />
+    <circle cx="580" cy="55" r="3" fill="#666" stroke="none"/>
+    <line x1="595" y1="50" x2="595" y2="65" />
+    <circle cx="595" cy="65" r="3" fill="#666" stroke="none"/>
+  </g>
+  <g fill="#555">
+     <circle cx="510" cy="90" r="4" />
+    <circle cx="530" cy="90" r="4" />
+    <circle cx="550" cy="90" r="4" />
+    <circle cx="570" cy="90" r="4" />
+    <circle cx="590" cy="90" r="4" />
+  </g>
+
+  <g transform="translate(45, 130)">
+    <use href="#whiteKey" x="0" y="0" />
+    <use href="#whiteKey" x="28" y="0" />
+    <use href="#whiteKey" x="56" y="0" />
+    <use href="#whiteKey" x="84" y="0" />
+    <use href="#whiteKey" x="112" y="0" />
+    <use href="#whiteKey" x="140" y="0" />
+    <use href="#whiteKey" x="168" y="0" />
+    <use href="#whiteKey" x="196" y="0" />
+    <use href="#whiteKey" x="224" y="0" />
+    <use href="#whiteKey" x="252" y="0" />
+    <use href="#whiteKey" x="280" y="0" />
+    <use href="#whiteKey" x="308" y="0" />
+    <use href="#whiteKey" x="336" y="0" />
+    <use href="#whiteKey" x="364" y="0" />
+    <use href="#whiteKey" x="392" y="0" />
+    <use href="#whiteKey" x="420" y="0" />
+    <use href="#whiteKey" x="448" y="0" />
+    <use href="#whiteKey" x="476" y="0" />
+    <use href="#whiteKey" x="504" y="0" />
+    <use href="#whiteKey" x="532" y="0" />
+    <use href="#whiteKey" x="560" y="0" />
+    <use href="#whiteKey" x="588" y="0" />
+    <use href="#whiteKey" x="616" y="0" />
+    <use href="#whiteKey" x="644" y="0" />
+    <use href="#whiteKey" x="672" y="0" />
+
+    <use href="#blackKey" x="18" y="0" />
+    <use href="#blackKey" x="50" y="0" />
+    <use href="#blackKey" x="106" y="0" />
+    <use href="#blackKey" x="136" y="0" />
+    <use href="#blackKey" x="166" y="0" />
+    <use href="#blackKey" x="220" y="0" />
+    <use href="#blackKey" x="250" y="0" />
+    <use href="#blackKey" x="306" y="0" />
+    <use href="#blackKey" x="336" y="0" />
+    <use href="#blackKey" x="366" y="0" />
+    <use href="#blackKey" x="420" y="0" />
+    <use href="#blackKey" x="450" y="0" />
+    <use href="#blackKey" x="506" y="0" />
+    <use href="#blackKey" x="536" y="0" />
+    <use href="#blackKey" x="566" y="0" />
+    <use href="#blackKey" x="620" y="0" />
+    <use href="#blackKey" x="650" y="0" />
+  </g>
+</svg>
