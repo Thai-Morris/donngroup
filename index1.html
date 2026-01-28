@@ -3,18 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Atlanta Wedding Band & Corporate Event Music | Donnie’s Band</title>
+    <title>Hire Donnie’s Band</title>
 
     <!-- Optional: swap these for your own hosted fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,650&family=Inter:wght@400;600;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500,650,750&family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <!-- icons -->
 
-    <link rel="canonical" href="https://thai-morris.github.io/donngroup/" />
+    <!-- <link rel="canonical" href="https://thai-morris.github.io/donngroup/" /> -->
 
 <meta name="description" content="Book Donnie’s Band in Atlanta for weddings, corporate events, and private parties. R&B, jazz, funk, gospel. Solo keys to full band. Fast replies in 24–48 hours." />
 
@@ -23,14 +23,14 @@
 <meta property="og:description" content="Full band, acoustic duo, or studio sessions. R&B, jazz, funk, gospel. Fast quotes." />
 <!-- will replace with his actual domain -->
 
-<meta property="og:url" content="https://thai-morris.github.io/donngroup/" />
-<meta property="og:image" content="https://thai-morris.github.io/donngroup/band.jpg" />
+<!-- <meta property="og:url" content="https://thai-morris.github.io/donngroup/" />
+<meta property="og:image" content="https://thai-morris.github.io/donngroup/band.jpg" /> -->
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Donnie’s Band | Atlanta Event Music" />
 <meta name="twitter:description" content="Weddings, corporate events, private parties. Solo keys to full band." />
 
-<meta name="twitter:image" content="https://thai-morris.github.io/donngroup/band.jpg" />
+<!-- <meta name="twitter:image" content="https://thai-morris.github.io/donngroup/band.jpg" /> -->
 
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
@@ -209,9 +209,7 @@ html{ scroll-behavior:smooth; }
       .svg-divider{ line-height: 0; }
       .svg-divider svg{ display:block; width:100%; height:78px; }
       @media (max-width: 920px){
-        .nav{ backdrop-filter: none; }
-.svg-divider svg{ height:64px;
-      }
+        .svg-divider svg{ height:64px; }
       }
 
       .hero{
@@ -293,12 +291,6 @@ html{ scroll-behavior:smooth; }
 
       /* Sections */
       .section{ padding: var(--section) 0; }
-
-      /* Performance: skip offscreen rendering */
-      .section, footer{
-        content-visibility: auto;
-        contain-intrinsic-size: 900px;
-      }
       .section-head{
         display:grid;
         grid-template-columns: 1fr;
@@ -315,9 +307,6 @@ html{ scroll-behavior:smooth; }
         border-radius: 16px;
         border: 1px solid var(--line);
         background: rgba(255,255,255,.02);
-      
-        aspect-ratio: 16 / 9;
-        object-fit: cover;
       }
       #services .price .service-img{ margin-left: auto; }
 
@@ -668,8 +657,9 @@ html{ scroll-behavior:smooth; }
         height: clamp(140px, 22vw, 280px);
         max-width: none;
         margin: 0 auto;
-        background-image: none; /* deferred via JS */
-background-repeat: no-repeat;
+
+        background-image: url(piano.svg);
+        background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
 }
@@ -707,31 +697,40 @@ background-repeat: no-repeat;
       </div>
     </nav>
 
-    <!-- Hero -->
+    <!-- Hero with video background placeholder -->
     <header id="top" class="hero">
-      <video
-        id="heroVideo"
-        class="hero-video"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="none"
-        poster="video-thumb.jpg"
-        aria-label="Hero video"
-      ></video>
+      <div class="container">
+        <section class="hero-video" aria-label="Hero video">
+            <!-- note convert to webm and what is  poster="poster.jpg" -->
+              <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="video-thumb.jpg">
+                <source src="thevideo.webm" type="video/webm" />
+                <source src="thevideo.mp4" type="video/mp4" />
+              </video>
+          <div class="hero-overlay" aria-hidden="true">
 
-      <div class="hero-overlay" aria-hidden="true"></div>
+          </div>
 
-      <div class="hero-content">
-        <h1>Make your event feel like a headline.</h1>
-        <div class="accent-rule" aria-hidden="true"></div>
-        <p class="lede">
-          Full-stage energy for dance floors, refined acoustic sets for cocktails, and studio sessions for artists
-          and brands. Choose the scale, lock the date, then fine-tune the setlist.
-        </p>
-        <div style="height:18px"></div>
-        <a class="btn btn-primary" href="#services">Explore services</a>
+          <div class="hero-content">
+    
+
+              <h1>Make your event feel like a headline.</h1>
+
+              <div class="accent-rule" aria-hidden="true"></div>
+
+              <p class="lede">
+                Full-stage energy for dance floors, refined acoustic sets for cocktails, and studio sessions for artists
+                and brands. Choose the scale, lock the date, then fine-tune the setlist.
+              </p>
+
+              <div style="height:18px"></div>
+
+              <!-- Single button on hero -->
+              <a class="btn btn-primary" href="#services">Explore services</a>
+
+             
+            </div>
+          </div>
+        </section>
       </div>
     </header>
 
@@ -1158,70 +1157,7 @@ background-repeat: no-repeat;
           </script>
 
     <script>
-      (function () {
-        // Year
-        var y = document.getElementById("year");
-        if (y) y.textContent = new Date().getFullYear();
-
-        // Lazy-load hero video sources after first paint/idle to protect LCP.
-        var v = document.getElementById("heroVideo");
-        var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-        function loadHeroVideo() {
-          if (!v || v.dataset.loaded || reduceMotion) return;
-          v.dataset.loaded = "1";
-
-          var sources = [
-            ["thevideo.webm", "video/webm"],
-            ["thevideo.mp4", "video/mp4"]
-          ];
-
-          for (var i = 0; i < sources.length; i++) {
-            var s = document.createElement("source");
-            s.src = sources[i][0];
-            s.type = sources[i][1];
-            v.appendChild(s);
-          }
-
-          v.load();
-          var p = v.play();
-          if (p && typeof p.catch === "function") p.catch(function () {});
-        }
-
-        if (v && !reduceMotion) {
-          if ("requestIdleCallback" in window) requestIdleCallback(loadHeroVideo, { timeout: 1500 });
-          else setTimeout(loadHeroVideo, 900);
-
-          ["pointerdown", "touchstart", "keydown", "scroll"].forEach(function (evt) {
-            window.addEventListener(evt, loadHeroVideo, { once: true, passive: true });
-          });
-        }
-
-        // Defer piano.svg background load until near viewport.
-        var piano = document.getElementById("piano");
-        function loadPiano() {
-          if (!piano || piano.dataset.loaded) return;
-          piano.dataset.loaded = "1";
-          piano.style.backgroundImage = "url('piano.svg')";
-        }
-
-        if (piano) {
-          if ("IntersectionObserver" in window) {
-            var io = new IntersectionObserver(function (entries) {
-              for (var j = 0; j < entries.length; j++) {
-                if (entries[j].isIntersecting) {
-                  loadPiano();
-                  io.disconnect();
-                  break;
-                }
-              }
-            }, { rootMargin: "300px" });
-            io.observe(piano);
-          } else {
-            setTimeout(loadPiano, 1500);
-          }
-        }
-      })();
+      document.getElementById("year").textContent = new Date().getFullYear();
     </script>
   </body>
 
