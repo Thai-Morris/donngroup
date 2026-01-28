@@ -1,0 +1,852 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hire Donnie’s Band</title>
+
+    <!-- Optional: swap these for your own hosted fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500,650,750&family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- icons -->
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#000000">
+<meta name="msapplication-TileImage" content="ms-icon-144x144.png">
+<meta name="theme-color" content="#000000">
+
+    <style>
+      :root{
+        /* Brand palette */
+        --noir:#0b0b10;
+        --noir-2:#12121a;
+        --violet:#8a2be2;
+        --violet-2:#b066ff;
+
+        /* Dark editorial */
+        --ink:#f1f1f7;
+        --ink-2:#e7e7f0;
+        --muted:rgba(241,241,247,.72);
+        --muted-2:rgba(241,241,247,.60);
+
+        /* Lines / surfaces */
+        --line:rgba(255,255,255,.12);
+        --line-2:rgba(255,255,255,.18);
+        --surface:rgba(255,255,255,.03);
+        --surface-2:rgba(255,255,255,.02);
+
+        /* Geometry */
+        --r-lg:24px;
+        --r-md:18px;
+
+        /* Layout */
+        --max: 1200px;
+        --gutter: clamp(18px, 3vw, 28px);
+        --section: clamp(74px, 9vw, 112px);
+      }
+
+      *{ box-sizing:border-box; }
+      
+      /* Responsive media defaults */
+      img, svg, video {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+html{ scroll-behavior:smooth; }
+      body{
+        margin:0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+        color: var(--ink);
+        background:
+          radial-gradient(1200px 800px at 15% 10%, rgba(138,43,226,.22), transparent 55%),
+          radial-gradient(900px 600px at 80% 20%, rgba(176,102,255,.16), transparent 55%),
+          linear-gradient(180deg, var(--noir) 0%, #07070b 100%);
+        line-height: 1.55;
+      }
+      a{ color:inherit; text-decoration:none; }
+      a:focus, button:focus { outline: 2px solid rgba(176,102,255,.55); outline-offset: 3px; }
+      ::selection{ background: rgba(176,102,255,.25); }
+
+      .container{ width:min(var(--max), calc(100% - 2*var(--gutter))); margin-inline:auto; }
+
+      /* Editorial type */
+      .kicker{
+        font-size:.78rem;
+        letter-spacing:.14em;
+        text-transform:uppercase;
+        color: var(--muted-2);
+        margin:0 0 10px 0;
+      }
+      h1, h2, h3{
+        font-family: Fraunces, ui-serif, Georgia, serif;
+        letter-spacing: -.03em;
+        margin:0;
+      }
+      h1{
+        font-size: clamp(2.6rem, 4.8vw, 4.4rem);
+        line-height: 1.01;
+      }
+      h2{
+        font-size: clamp(1.8rem, 2.4vw, 2.35rem);
+        line-height: 1.12;
+      }
+      .lede{
+        font-size: clamp(1.06rem, 1.2vw, 1.18rem);
+        color: var(--muted);
+        max-width: 70ch;
+        margin: 0;
+      }
+      .small{
+        font-size:.98rem;
+        color: var(--muted-2);
+      }
+
+      /* Nav */
+      .nav{
+        position: fixed;
+        inset: 0 0 auto 0;
+        z-index: 50;
+        background: rgba(11,11,16,.62);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav-inner{
+        height: 68px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap: 18px;
+      }
+      .brand{
+        display:flex; align-items:center; gap: 12px;
+        font-weight: 800;
+        letter-spacing: -.01em;
+      }
+      .brand-mark{
+        width: 34px; height: 34px; border-radius: 10px;
+        background: conic-gradient(from 200deg, var(--violet), var(--violet-2), #4d6bff, var(--violet));
+        box-shadow: 0 10px 30px rgba(138,43,226,.18);
+        flex: 0 0 auto;
+      }
+      .nav-links{
+        display:flex; align-items:center; gap: 18px;
+        font-weight: 650;
+      }
+      .nav-links a{
+        padding: .35rem .45rem;
+        border-radius: 10px;
+        color: rgba(241,241,247,.88);
+      }
+      .nav-links a:hover{ background: rgba(255,255,255,.05); }
+
+      /* Buttons */
+      .btn{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        gap: .55rem;
+        border-radius: 999px;
+        padding: .95rem 1.15rem;
+        font-weight: 850;
+        border: 1px solid transparent;
+        cursor:pointer;
+        background: transparent;
+        line-height: 1;
+        white-space: nowrap;
+      }
+      .btn-primary{
+        background: linear-gradient(90deg, var(--violet), var(--violet-2));
+        color: #0b0b10;
+        border: 0;
+      }
+      .btn-primary:hover{ filter: brightness(1.03); }
+      .btn-sm{ padding:.62rem .92rem; font-weight: 850; }
+
+      /* Dividers */
+      .divider{
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
+      }
+
+      /* SVG dividers */
+      .svg-divider{ line-height: 0; }
+      .svg-divider svg{ display:block; width:100%; height:78px; }
+      @media (max-width: 920px){
+        .svg-divider svg{ height:64px; }
+      }
+
+      .hero{
+  position: relative;
+  min-height: 92vh;          /* responsive hero height */
+  padding-top: 88px;         /* nav offset */
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* The video fills the entire hero */
+.hero-video{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02); /* tiny scale to avoid edge gaps on some devices */
+}
+
+/* Overlay to keep text readable on bright footage */
+.hero-overlay{
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(900px 600px at 20% 25%, rgba(138,43,226,.22), transparent 60%),
+    linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.70) 55%, rgba(0,0,0,.78) 100%),
+    linear-gradient(90deg, rgba(0,0,0,.72) 0%, rgba(0,0,0,.38) 55%, rgba(0,0,0,.18) 100%);
+  pointer-events: none;
+}
+
+/* Only headline + button */
+.hero-content{
+  position: relative;
+  z-index: 2;
+  width: min(var(--max), calc(100% - 2*var(--gutter)));
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  padding: clamp(22px, 3.2vw, 44px) 0;
+}
+
+/* Keep headline crisp and not too wide */
+.hero h1{
+  max-width: 18ch;
+  font-size: clamp(2.6rem, 5.2vw, 4.7rem);
+  line-height: 1.01;
+  margin: 0;
+}
+      .hero-inner{
+        padding: clamp(22px, 3.2vw, 44px);
+        max-width: 62rem;
+      }
+      .piano-divider{
+        width: 100%;
+        height: auto;          /* keeps aspect ratio */
+        display: block;        /* removes inline SVG gaps */
+      }
+
+      .pill-row{ display:flex; flex-wrap:wrap; gap: 10px; margin: 0 0 18px 0; }
+      .pill{
+        border: 1px solid rgba(255,255,255,.14);
+        background: rgba(255,255,255,.04);
+        color: rgba(241,241,247,.78);
+        border-radius: 999px;
+        padding: .42rem .78rem;
+        font-size: .92rem;
+      }
+
+      .accent-rule{
+        height: 1px;
+        background: linear-gradient(90deg, rgba(138,43,226,.0), rgba(138,43,226,.55), rgba(176,102,255,.55), rgba(138,43,226,.0));
+        margin: 22px 0 18px 0;
+      }
+
+      /* Sections */
+      .section{ padding: var(--section) 0; }
+      .section-head{
+        display:grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: clamp(22px, 2.2vw, 34px);
+      }
+          
+      #services .service-img{
+        width: 100%;
+        max-width: 520px;
+        height: auto;
+        display: block;
+        margin: 10px 0 12px 0;
+        border-radius: 16px;
+        border: 1px solid var(--line);
+        background: rgba(255,255,255,.02);
+      }
+      #services .price .service-img{ margin-left: auto; }
+
+      
+
+      /* About image */
+      .about-img{
+        width: 100%;
+        height: auto;
+        border-radius: 16px;
+        border: 1px solid var(--line);
+        background: rgba(255,255,255,.02);
+        margin-top: 12px;
+      }
+
+@media (max-width: 920px){
+        #services .service-img{
+          max-width: 100%;
+          margin: 12px 0 10px 0;
+        }
+      }
+
+      /* About: flat, border-first */
+      .about-grid{
+        display:grid;
+        grid-template-columns: 1.05fr .95fr;
+        gap: clamp(18px, 3vw, 34px);
+        align-items:start;
+      }
+      .flat-card{
+        border: 1px solid var(--line);
+        border-radius: var(--r-md);
+        padding: 18px;
+        background: rgba(255,255,255,.03);
+      }
+      .flat-card h3{
+        font-family: Inter, ui-sans-serif, system-ui;
+        letter-spacing: -.01em;
+        font-weight: 850;
+        font-size: 1rem;
+        margin: 0 0 6px 0;
+      }
+      .tag-row{ display:flex; flex-wrap:wrap; gap: 10px; margin-top: 12px; }
+
+      /* Services: statement rows */
+      .pricing-grid{
+        display:grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-top: 22px;
+      }
+      .row-card{
+        border: 1px solid var(--line);
+        border-radius: var(--r-md);
+        background: rgba(255,255,255,.02);
+        padding: 18px;
+      }
+      .row-top{
+        display:grid;
+        grid-template-columns: 1.15fr .55fr;
+        gap: 16px;
+        align-items:start;
+      }
+      .row-title{
+        display:flex;
+        align-items:center;
+        gap: 10px;
+        flex-wrap:wrap;
+      }
+      .row-title h3{
+        font-size: 1.25rem;
+        line-height: 1.15;
+      }
+      .row-desc{
+        margin: 6px 0 0 0;
+        color: rgba(241,241,247,.74);
+        max-width: 68ch;
+      }
+      .badge{
+        display:inline-flex;
+        align-items:center;
+        border-radius: 999px;
+        padding: .35rem .6rem;
+        font-weight: 900;
+        color: #0b0b10;
+        background: linear-gradient(90deg, var(--violet), var(--violet-2));
+        letter-spacing: -.01em;
+        font-size: .85rem;
+      }
+      .price{
+        text-align:right;
+      }
+      .price strong{
+        display:block;
+        font-family: Fraunces, ui-serif, Georgia, serif;
+        font-size: 2.1rem;
+        letter-spacing: -.03em;
+        line-height: 1.05;
+      }
+      .price span{
+        color: rgba(241,241,247,.65);
+        font-weight: 600;
+      }
+      .bullets{
+        margin: 12px 0 0 0;
+        padding-left: 1.1rem;
+      }
+      .bullets li{
+        margin: .38rem 0;
+        color: rgba(241,241,247,.70);
+      }
+      .row-actions{
+        display:flex;
+        justify-content:space-between;
+        gap: 14px;
+        flex-wrap:wrap;
+        margin-top: 14px;
+        align-items:center;
+      }
+      .note{
+        color: rgba(241,241,247,.62);
+        font-size: .95rem;
+      }
+
+      footer{
+        padding: 28px 0;
+        color: rgba(241,241,247,.62);
+        border-top: 1px solid rgba(255,255,255,.12);
+        background: rgba(0,0,0,.20);
+      }
+      .footer-row{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap: 12px;
+        flex-wrap:wrap;
+      }
+
+      #piano {
+        display: block;
+        width: 100%;
+        height: clamp(140px, 22vw, 280px);
+        max-width: none;
+        margin: 0 auto;
+
+        background-image: url(piano.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+}
+
+
+
+      /* Responsive */
+      @media (max-width: 920px){
+        .about-grid{ grid-template-columns: 1fr; }
+        .row-top{ grid-template-columns: 1fr; }
+        .price{ text-align:left; }
+        .nav-links a{ display:none; }
+        .nav-links .btn{ display:inline-flex; }
+        .hero-content{ align-items:flex-end; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Nav -->
+    <nav class="nav" aria-label="Primary">
+      <div class="container">
+        <div class="nav-inner">
+          <a class="brand" href="#top">
+            <img src="testlogo.png" height="45px" width="45px">
+            <span>Donnie’s Band</span>
+          </a>
+
+          <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a class="btn btn-sm btn-primary" href="#services">View Pricing</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero with video background placeholder -->
+    <header id="top" class="hero">
+      <div class="container">
+        <section class="hero-video" aria-label="Hero video">
+            <!-- note convert to webm and what is  poster="poster.jpg" -->
+              <video  class="hero-video" autoplay muted loop playsinline>
+                <source src="thevideo.mp4" type="video/mp4" />
+              </video>
+          <div class="hero-overlay" aria-hidden="true">
+
+          </div>
+
+          <div class="hero-content">
+    
+
+              <h1>Make your event feel like a headline.</h1>
+
+              <div class="accent-rule" aria-hidden="true"></div>
+
+              <p class="lede">
+                Full-stage energy for dance floors, refined acoustic sets for cocktails, and studio sessions for artists
+                and brands. Choose the scale, lock the date, then fine-tune the setlist.
+              </p>
+
+              <div style="height:18px"></div>
+
+              <!-- Single button on hero -->
+              <a class="btn btn-primary" href="#services">Explore services</a>
+
+             
+            </div>
+          </div>
+        </section>
+      </div>
+    </header>
+
+                <!-- Jazzy staff divider (fancier melody) -->
+    <div class="svg-divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="staffGrad" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0" stop-color="rgba(138,43,226,0)"/>
+            <stop offset="0.35" stop-color="rgba(176,102,255,.40)"/>
+            <stop offset="0.55" stop-color="rgba(241,241,247,.22)"/>
+            <stop offset="0.75" stop-color="rgba(176,102,255,.40)"/>
+            <stop offset="1" stop-color="rgba(138,43,226,0)"/>
+          </linearGradient>
+
+          <linearGradient id="melodyGrad" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0" stop-color="rgba(176,102,255,0)"/>
+            <stop offset="0.35" stop-color="rgba(176,102,255,.70)"/>
+            <stop offset="0.65" stop-color="rgba(138,43,226,.65)"/>
+            <stop offset="1" stop-color="rgba(176,102,255,0)"/>
+          </linearGradient>
+
+          <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="2.4" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+
+        <!-- staff lines -->
+        <g stroke="url(#staffGrad)" stroke-width="2" opacity=".95">
+          <line x1="0" y1="54" x2="1440" y2="54"/>
+          <line x1="0" y1="69" x2="1440" y2="69"/>
+          <line x1="0" y1="84" x2="1440" y2="84"/>
+          <line x1="0" y1="99" x2="1440" y2="99"/>
+          <line x1="0" y1="114" x2="1440" y2="114"/>
+        </g>
+
+        <!-- melody curve (soft glow) -->
+        <g filter="url(#glow)">
+          <path d="M-40,96 C140,28 320,132 520,76 C700,26 880,126 1080,70 C1240,26 1360,104 1480,62"
+                fill="none" stroke="url(#melodyGrad)" stroke-width="3.2" opacity=".95" stroke-linecap="round"/>
+          <path d="M-40,104 C150,44 330,140 520,88 C700,40 890,132 1080,86 C1240,44 1360,116 1480,82"
+                fill="none" stroke="rgba(241,241,247,.20)" stroke-width="2" opacity=".55"
+                stroke-linecap="round" stroke-dasharray="7 12"/>
+        </g>
+
+        <!-- notes (more of them) -->
+        <g filter="url(#glow)" fill="rgba(241,241,247,.92)">
+          <!-- single notes -->
+          <g>
+            <ellipse cx="140" cy="102" rx="10" ry="7" transform="rotate(-18 140 102)"/>
+            <rect x="148" y="64" width="3" height="40" rx="1.5"/>
+            <path d="M151,64 q10,8 0,16" fill="none" stroke="rgba(241,241,247,.92)" stroke-width="2" stroke-linecap="round"/>
+          </g>
+
+          <g>
+            <ellipse cx="230" cy="84" rx="10" ry="7" transform="rotate(-18 230 84)"/>
+            <rect x="238" y="46" width="3" height="40" rx="1.5"/>
+          </g>
+
+          <g>
+            <ellipse cx="320" cy="69" rx="10" ry="7" transform="rotate(-18 320 69)"/>
+            <rect x="328" y="31" width="3" height="40" rx="1.5"/>
+            <path d="M331,31 q10,8 0,16" fill="none" stroke="rgba(241,241,247,.92)" stroke-width="2" stroke-linecap="round"/>
+          </g>
+
+          <g>
+            <ellipse cx="410" cy="81" rx="10" ry="7" transform="rotate(-18 410 81)"/>
+            <rect x="418" y="43" width="3" height="40" rx="1.5"/>
+          </g>
+
+          <!-- beamed pair -->
+          <g>
+            <ellipse cx="560" cy="98" rx="10" ry="7" transform="rotate(-18 560 98)"/>
+            <rect x="568" y="58" width="3" height="42" rx="1.5"/>
+            <ellipse cx="610" cy="86" rx="10" ry="7" transform="rotate(-18 610 86)"/>
+            <rect x="618" y="46" width="3" height="42" rx="1.5"/>
+            <path d="M570,60 L622,45 L624,51 L572,66 Z"/>
+          </g>
+
+          <!-- grace note -->
+          <g opacity=".8">
+            <ellipse cx="700" cy="74" rx="7" ry="5" transform="rotate(-18 700 74)"/>
+            <rect x="706" y="52" width="2.4" height="24" rx="1.2"/>
+          </g>
+
+          <g>
+            <ellipse cx="770" cy="67" rx="10" ry="7" transform="rotate(-18 770 67)"/>
+            <rect x="778" y="29" width="3" height="40" rx="1.5"/>
+          </g>
+
+          <g>
+            <ellipse cx="900" cy="100" rx="10" ry="7" transform="rotate(-18 900 100)"/>
+            <rect x="908" y="62" width="3" height="40" rx="1.5"/>
+            <path d="M911,62 q10,8 0,16" fill="none" stroke="rgba(241,241,247,.92)" stroke-width="2" stroke-linecap="round"/>
+          </g>
+
+          <!-- down-stem note for variety -->
+          <g>
+            <ellipse cx="1040" cy="83" rx="10" ry="7" transform="rotate(-18 1040 83)"/>
+            <rect x="1036" y="83" width="3" height="40" rx="1.5"/>
+          </g>
+
+          <g>
+            <ellipse cx="1180" cy="69" rx="10" ry="7" transform="rotate(-18 1180 69)"/>
+            <rect x="1188" y="31" width="3" height="40" rx="1.5"/>
+          </g>
+
+          <g>
+            <ellipse cx="1320" cy="98" rx="10" ry="7" transform="rotate(-18 1320 98)"/>
+            <rect x="1328" y="60" width="3" height="40" rx="1.5"/>
+          </g>
+
+          <!-- tiny sparkle dots -->
+          <g fill="rgba(176,102,255,.35)">
+            <circle cx="520" cy="36" r="2.2"/>
+            <circle cx="545" cy="30" r="1.6"/>
+            <circle cx="1090" cy="32" r="2.0"/>
+            <circle cx="1115" cy="40" r="1.5"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+<!-- About -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>About</h2>
+          <p class="lede">
+           
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="flat-card">
+            <h3>What you get</h3>
+            <p class="lede" style="margin-top:0;">
+            
+              <img class="about-img" loading="lazy" src="donniepose.jpg" alt="Donnie (D-Major)">
+          </div>
+
+          <div class="flat-card">
+            <h3>Best for</h3>
+            <p class="lede" style="margin-top:0;">
+             (Donnie's bio and achievements,) 
+             Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br>
+             Labore laudantium voluptate id voluptates porro voluptatem cupiditate tempore, voluptas ut ad beatae sint. Explicabo omnis officia sed quae magnam illo quam!
+            </p>
+            </p>
+
+            <div class="accent-rule" aria-hidden="true" style="margin: 16px 0 12px 0;"></div>
+
+            <p class="small" style="margin:0;">
+              Booking philosophy: pick a package, lock the date, then refine the setlist and flow.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <!-- piano divider-->
+    <div id="piano" class="svg-divider" aria-hidden="true" >
+      
+    </div>
+
+    <!-- Services -->
+    <section id="services" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Services</h2>
+          <p class="lede">
+            Choose a package. Pricing is a starting point; travel, extended time, and specialty requests can be added.
+          </p>
+        </div>
+
+        <div class="pricing-grid" aria-label="Service options">
+          <!-- Full band -->
+          <article class="row-card">
+            <div class="row-top">
+              <div>
+                <div class="row-title">
+                  <h3>The Band (Full Performance)</h3>
+                  <span class="badge">Signature</span>
+                </div>
+                                 <img class="service-img" loading="lazy" src="band.jpg" alt="Donnie's Band">
+                <p class="row-desc">The full lineup for big moments and packed dance floors.</p>
+              </div>
+
+              <div class="price" aria-label="Price">
+                <strong>$10,000</strong>
+                <span>flat</span>
+              </div>
+            </div>
+
+            <ul class="bullets">
+              <li>Full band performance block</li>
+              <li>Setlist planning + event flow support</li>
+              <li>Soundcheck + coordination with venue</li>
+              <li>Ideal for weddings + corporate showcases</li>
+            </ul>
+
+            <div class="row-actions">
+              <a class="btn btn-primary btn-sm" href="#services" data-plan="full-band">Book this</a>
+              <div class="note">Tip: Add horns, extra vocalist, or longer set time as upgrades.</div>
+            </div>
+          </article>
+
+          <!-- Acoustic duo -->
+          <article class="row-card">
+            <div class="row-top">
+              <div>
+                <div class="row-title">
+                  <h3>Acoustic Duo</h3>
+                </div>
+                <img class="service-img" loading="lazy" src="donnieplaying.jpg" alt="Donnie's Duo">
+                <p class="row-desc">A tighter, elegant setup for cocktails and intimate rooms.</p>
+              </div>
+
+              <div class="price">
+                <strong>$2,500</strong>
+                <span>starting</span>
+              </div>
+            </div>
+
+            <!-- <svg viewBox="0 0 1440 160" preserveAspectRatio="none">
+        <path fill="rgba(176,102,255,.22)"
+          d="M0,92 C240,132 480,52 720,92 C960,132 1200,52 1440,92 L1440,160 L0,160 Z"/>
+        <path fill="rgba(138,43,226,.32)"
+          d="M0,106 C260,156 520,56 760,106 C980,152 1220,72 1440,112 L1440,160 L0,160 Z"/>
+        <path fill="currentColor"
+          d="M0,122 C260,86 520,156 760,122 C980,90 1220,150 1440,122 L1440,160 L0,160 Z"/>
+      </svg> -->
+
+            <ul class="bullets">
+              <li>Two performers (vocals + guitar/keys)</li>
+              <li>Perfect for cocktail hour and lounges</li>
+              <li>Low footprint, quick setup</li>
+              <li>Optional curated “vibes” setlist</li>
+            </ul>
+
+            <div class="row-actions">
+              <a class="btn btn-outline btn-sm" href="#services" data-plan="acoustic-duo" style="border-color: rgba(255,255,255,.22); background: rgba(255,255,255,.02); color: rgba(241,241,247,.92);">Select</a>
+              <div class="note">Best when the room needs atmosphere more than volume.</div>
+            </div>
+          </article>
+
+          <!-- Studio session -->
+          <article class="row-card">
+            <div class="row-top">
+              <div>
+                <div class="row-title">
+                  <h3>Studio Session</h3>
+                </div>  
+                    <img class="service-img" loading="lazy" src="noiredonnie.jpg" alt="Donnie (studio session)">
+                <p class="row-desc">Hire Donnie and/or band members for recording and production support.</p>
+              </div>
+
+              <div class="price">
+                <strong>$1,200</strong>
+                <span>per session</span>
+              </div>
+            </div>
+
+            <ul class="bullets">
+              <li>Session performance (instrument/vocals)</li>
+              <li>Arrangement ideas + tight takes</li>
+              <li>Remote or in-studio (by request)</li>
+              <li>Great for artists, ads, and content</li>
+            </ul>
+
+            <div class="row-actions">
+              <a class="btn btn-outline btn-sm" href="#services" data-plan="studio-session" style="border-color: rgba(255,255,255,.22); background: rgba(255,255,255,.02); color: rgba(241,241,247,.92);">Select</a>
+              <div class="note">Designed for speed, clarity, and clean deliverables.</div>
+            </div>
+          </article>
+
+          <!-- Weekly retainer -->
+          <article class="row-card">
+            <div class="row-top">
+              <div>
+                <div class="row-title">
+                  <h3>Weekly Retainer</h3>
+                </div>
+                <img class="service-img" loading="lazy" src="band2.jpg" alt="Donnie's Weekly Sessions">
+                <p class="row-desc">For venues, residencies, and recurring private events.</p>
+              </div>
+
+              <div class="price">
+                <strong>$1,500</strong>
+                <span>/ week</span>
+              </div>
+            </div>
+
+            <ul class="bullets">
+              <li>Priority scheduling each week</li>
+              <li>Consistent lineup and sound</li>
+              <li>Flexible set lengths (with add-ons)</li>
+              <li>Best value for ongoing bookings</li>
+            </ul>
+
+            <div class="row-actions">
+              <a class="btn btn-primary btn-sm" href="#services" data-plan="weekly-retainer">Start retainer</a>
+              <div class="note">Retainers are billed weekly; dates/times confirmed in advance.</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blues smoky drip divider -->
+    <div class="svg-divider" aria-hidden="true" style="color: var(--noir-2);">
+      <svg viewBox="0 0 1440 170" preserveAspectRatio="none">
+        <path fill="rgba(255,255,255,.06)"
+          d="M0,70 C180,40 360,110 540,80 C720,50 900,120 1080,85 C1260,50 1350,90 1440,75 L1440,170 L0,170 Z"/>
+        <path fill="rgba(138,43,226,.20)"
+          d="M0,92 C200,130 380,60 560,98 C740,140 920,70 1100,102 C1260,130 1360,96 1440,112 L1440,170 L0,170 Z"/>
+        <path fill="currentColor"
+          d="M0,120
+             C120,92 180,150 300,126
+             C420,102 480,160 600,132
+             C720,104 780,168 900,138
+             C1020,108 1080,166 1200,136
+             C1320,106 1380,150 1440,126
+             L1440,170 L0,170 Z"/>
+      </svg>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="footer-row">
+          <div>© <span id="year"></span> Donnie’s Band</div>
+          <div class="small">Made with love by...</div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
