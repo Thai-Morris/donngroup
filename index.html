@@ -382,6 +382,133 @@ html{ scroll-behavior:smooth; }
       }
       .reel video{ width:100%; height:auto; display:block; }
 
+
+      /* Proof: Polaroid trio (inside #photos) */
+      #photos .small { margin: 0; }
+
+      .polaroid-stack{
+        position: relative;
+        margin-top: 14px;
+        height: clamp(320px, 44vw, 440px);
+        isolation: isolate; /* keeps z-index predictable */
+      }
+
+      .polaroid{
+        --x: 0px;
+        --y: 0px;
+        --rot: 0deg;
+        --z: 1;
+
+        position: absolute;
+        left: 50%;
+        top: 0;
+        width: clamp(190px, 26vw, 270px);
+
+        background: rgba(255,255,255,.92);
+        color: #0b0b10;
+        border-radius: 14px;
+        padding: 12px 12px 14px;
+
+        border: 1px solid rgba(0,0,0,.10);
+        box-shadow:
+          0 28px 60px rgba(0,0,0,.55),
+          0 1px 0 rgba(255,255,255,.35) inset;
+
+        transform:
+          translate(calc(-50% + var(--x)), var(--y))
+          rotate(var(--rot));
+        z-index: var(--z);
+        transition: transform .25s ease, box-shadow .25s ease;
+      }
+
+      /* "tape" */
+      .polaroid::before{
+        content:"";
+        position:absolute;
+        top: -12px;
+        left: 50%;
+        width: 78px;
+        height: 26px;
+        transform: translateX(-50%) rotate(-6deg);
+        background: rgba(255,255,255,.32);
+        border: 1px solid rgba(255,255,255,.18);
+        box-shadow: 0 10px 18px rgba(0,0,0,.32);
+        border-radius: 8px;
+        backdrop-filter: blur(2px);
+        pointer-events: none;
+      }
+
+      .polaroid img{
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 1px solid rgba(0,0,0,.10);
+        background: rgba(0,0,0,.06);
+      }
+
+      .polaroid figcaption{
+        margin-top: 10px;
+        font-family: Fraunces, ui-serif, Georgia, serif;
+        font-weight: 650;
+        letter-spacing: -.01em;
+        line-height: 1.2;
+      }
+      .polaroid .meta{
+        display:block;
+        margin-top: 4px;
+        font-family: Inter, ui-sans-serif, system-ui;
+        font-size: .82rem;
+        color: rgba(11,11,16,.62);
+      }
+
+      .polaroid.p-left{
+        --x: clamp(-220px, -22vw, -150px);
+        --y: 38px;
+        --rot: -8deg;
+        --z: 1;
+      }
+      .polaroid.p-center{
+        --x: 0px;
+        --y: 0px;
+        --rot: 1.2deg;
+        --z: 3;
+      }
+      .polaroid.p-right{
+        --x: clamp(150px, 22vw, 220px);
+        --y: 46px;
+        --rot: 8deg;
+        --z: 2;
+      }
+
+      .polaroid:hover{
+        transform:
+          translate(calc(-50% + var(--x)), calc(var(--y) - 10px))
+          rotate(calc(var(--rot) * .55));
+        box-shadow:
+          0 36px 70px rgba(0,0,0,.62),
+          0 1px 0 rgba(255,255,255,.35) inset;
+        z-index: 5;
+      }
+
+      @media (max-width: 560px){
+        .polaroid-stack{
+          height: auto;
+          display: grid;
+          gap: 14px;
+        }
+        .polaroid{
+          position: relative;
+          left: auto;
+          top: auto;
+          width: min(420px, 100%);
+          margin-inline: auto;
+          transform: none;
+        }
+        .polaroid:hover{ transform: translateY(-6px); }
+      }
+
+
 @media (max-width: 920px){
         #services .service-img{
           max-width: 100%;
@@ -715,7 +842,7 @@ html{ scroll-behavior:smooth; }
     <section id="about" class="section">
       <div class="container">
         <div class="section-head">
-          <h2>About</h2>
+          <h2>About Donnie</h2>
           <p class="lede">
            
           </p>
@@ -724,7 +851,6 @@ html{ scroll-behavior:smooth; }
         <div class="about-proof-grid">
           <!-- Left: copy + proof bullets -->
           <div class="flat-card">
-            <h3>About Donnie</h3>
             <p class="lede" style="margin-top:0;">
               Atlanta-based keys and bandleader delivering polished R&amp;B, jazz, funk, and gospel — built for weddings,
               corporate events, and upscale parties.
@@ -738,7 +864,7 @@ html{ scroll-behavior:smooth; }
             </ul>
 
             <div class="proof-stats" aria-label="Quick stats">
-              <div class="stat"><span class="k">10+ yrs</span><span class="s">Performing</span></div>
+              <div class="stat"><span class="k">30+ yrs</span><span class="s">Performing</span></div>
               <div class="stat"><span class="k">100+ events</span><span class="s">Booked</span></div>
               <div class="stat"><span class="k">Fast replies</span><span class="s">24–48 hrs</span></div>
             </div>
@@ -751,33 +877,23 @@ html{ scroll-behavior:smooth; }
           </div>
 
           <!-- Right: media proof -->
-          <div class="flat-card">
-            <h3>Proof</h3>
+          <div id="photos">
+            <div class="polaroid-stack" aria-label="Photo gallery">
+              <figure class="polaroid p-left">
+                <img loading="lazy" src="donniekeys.jpg" alt="Donnie performing on keys in a live band setup">
+                <figcaption>On the keys<span class="meta">R&amp;B • Jazz • Funk</span></figcaption>
+              </figure>
 
-            <!-- <div class="media-grid" aria-label="Performance photos">
-              <figure class="media">
-                <img loading="lazy" src="donniekeys.jpg" alt="Donnie performing on keys">
+              <figure class="polaroid p-center">
+                <img loading="lazy" src="event3.jpg" alt="Donnie’s band on stage at a live event">
+                <figcaption>Show-ready<span class="meta">Weddings • Corporate • Private</span></figcaption>
               </figure>
-              <figure class="media">
-                <img loading="lazy" src="donniekeypiano.jpg" alt="Full band performance photo">
-              </figure>
-              <figure class="media">
-                <img loading="lazy" src="doublepianodonnie.jpg" alt="Donnie on stage with lighting">
-              </figure>
-              <figure class="media">
-                <img loading="lazy" src="band3.jpg" alt="Band performance photo">
-              </figure>
-            </div> -->
 
-            <div class="poster-grid" aria-label="Selected show flyers">
-              <img loading="lazy" src="event1.jpg" alt="Event flyer">
-              <img loading="lazy" src="event2.jpg" alt="Event flyer">
-              <img loading="lazy" src="event3.jpg" alt="St. James Live">
+              <figure class="polaroid p-right">
+                <img loading="lazy" src="donniekeypiano.jpg" alt="Donnie playing keyboard in a formal event setting">
+                <figcaption>Polished sets<span class="meta">Setup • Timing • Volume</span></figcaption>
+              </figure>
             </div>
-
-            <!-- <p class="small" style="margin:10px 0 0 0; opacity:.85;">
-              Short reel — live keys + band moments.
-            </p> -->
           </div>
         </div>
 
