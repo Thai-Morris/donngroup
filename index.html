@@ -13,6 +13,25 @@
       rel="stylesheet"
     />
     <!-- icons -->
+
+    <!-- <link rel="canonical" href="https://thai-morris.github.io/donngroup/" /> -->
+
+<meta name="description" content="Book Donnie’s Band in Atlanta for weddings, corporate events, and private parties. R&B, jazz, funk, gospel. Solo keys to full band. Fast replies in 24–48 hours." />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Donnie’s Band | Atlanta Wedding & Corporate Event Band" />
+<meta property="og:description" content="Full band, acoustic duo, or studio sessions. R&B, jazz, funk, gospel. Fast quotes." />
+<!-- will replace with his actual domain -->
+
+<!-- <meta property="og:url" content="https://thai-morris.github.io/donngroup/" />
+<meta property="og:image" content="https://thai-morris.github.io/donngroup/band.jpg" /> -->
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Donnie’s Band | Atlanta Event Music" />
+<meta name="twitter:description" content="Weddings, corporate events, private parties. Solo keys to full band." />
+
+<!-- <meta name="twitter:image" content="https://thai-morris.github.io/donngroup/band.jpg" /> -->
+
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
@@ -665,7 +684,7 @@ html{ scroll-behavior:smooth; }
       <div class="container">
         <div class="nav-inner">
           <a class="brand" href="#top">
-            <img src="testlogo.png" height="45px" width="45px">
+            <img src="testlogo.png" height="45px" width="45px" alt="Donnie’s Band logo">
             <span>Donnie’s Band</span>
           </a>
 
@@ -683,7 +702,8 @@ html{ scroll-behavior:smooth; }
       <div class="container">
         <section class="hero-video" aria-label="Hero video">
             <!-- note convert to webm and what is  poster="poster.jpg" -->
-              <video  class="hero-video" autoplay muted loop playsinline>
+              <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="video-thumb.jpg">
+                <source src="thevideo.webm" type="video/webm" />
                 <source src="thevideo.mp4" type="video/mp4" />
               </video>
           <div class="hero-overlay" aria-hidden="true">
@@ -1049,6 +1069,21 @@ html{ scroll-behavior:smooth; }
       </div>
     </section>
 
+    <section id="contact" class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>Contact</h2>
+      <p class="lede">Quotes in 24–48 hours. Atlanta-based. Travel available.</p>
+    </div>
+    <div class="flat-card">
+      <p><strong>Email:</strong> <a href="mailto:BOOKING_EMAIL">BOOKING_EMAIL</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+1XXXXXXXXXX">+1 (XXX) XXX-XXXX</a></p>
+      <p class="small">Service area: Atlanta, GA + regional travel</p>
+    </div>
+  </div>
+</section>
+
+
     <!-- Blues smoky drip divider -->
     <div class="svg-divider" aria-hidden="true" style="color: var(--noir-2);">
       <svg viewBox="0 0 1440 170" preserveAspectRatio="none">
@@ -1074,10 +1109,56 @@ html{ scroll-behavior:smooth; }
           <div class="small">Made with love by... <a href="https://thaimorris.com/">Thai Morris</a> </div>
         </div>
       </div>
+      <!-- again replace with REAL domain name -->
     </footer>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Donnie’s Band – Live Highlights",
+  "description": "Highlights of Donnie’s Band performing R&B, jazz, funk, and gospel for events in Atlanta.",
+  "thumbnailUrl": ["https://thai-morris.github.io/donngroup/video-thumb.jpg"],
+  "contentUrl": "https://thai-morris.github.io/donngroup/thevideo.mp4",
+  "embedUrl": "https://thai-morris.github.io/donngroup/",
+  "uploadDate": "2026-01-01"
+}
+</script>
+
+              <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": ["MusicGroup","LocalBusiness"],
+            "name": "Donnie’s Band",
+            "url": "https://thai-morris.github.io/donngroup/",
+            "areaServed": "Atlanta, GA",
+            "genre": ["R&B","Jazz","Funk","Gospel"],
+            "image": [
+              "https://thai-morris.github.io/donngroup/band.jpg",
+              "https://thai-morris.github.io/donngroup/donnieplaying.jpg"
+            ],
+            "priceRange": "$1200-$10000",
+            "makesOffer": [
+              {
+                "@type": "Offer",
+                "name": "The Band (Full Performance)",
+                "price": "10000",
+                "priceCurrency": "USD",
+                "url": "https://thai-morris.github.io/donngroup/#services"
+              },
+              {
+                "@type": "Offer",
+                "name": "Acoustic Duo",
+                "price": "2500",
+                "priceCurrency": "USD",
+                "url": "https://thai-morris.github.io/donngroup/#services"
+              }
+            ]
+          }
+          </script>
 
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
   </body>
+
 </html>
