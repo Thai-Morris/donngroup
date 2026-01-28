@@ -14,7 +14,7 @@
     />
     <!-- icons -->
 
-    <link rel="canonical" href="https://thai-morris.github.io/donngroup/" />
+    <!-- <link rel="canonical" href="https://thai-morris.github.io/donngroup/" /> -->
 
 <meta name="description" content="Book Donnie’s Band in Atlanta for weddings, corporate events, and private parties. R&B, jazz, funk, gospel. Solo keys to full band. Fast replies in 24–48 hours." />
 
@@ -23,8 +23,8 @@
 <meta property="og:description" content="Full band, acoustic duo, or studio sessions. R&B, jazz, funk, gospel. Fast quotes." />
 <!-- will replace with his actual domain -->
 
-<meta property="og:url" content="https://thai-morris.github.io/donngroup/" />
-<meta property="og:image" content="https://thai-morris.github.io/donngroup/band.jpg" />
+<!-- <meta property="og:url" content="https://thai-morris.github.io/donngroup/" /> -->
+<!-- <meta property="og:image" content="https://thai-morris.github.io/donngroup/band.jpg" /> -->
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Donnie’s Band | Atlanta Event Music" />
@@ -416,6 +416,135 @@ html{ scroll-behavior:smooth; }
         border: 1px solid var(--line);
         background: rgba(255,255,255,.02);
       }
+
+
+      /* Flyers: responsive gallery + lightbox */
+      .flyer-grid{
+        display:grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 12px;
+      }
+      @media (max-width: 900px){
+        .flyer-grid{ grid-template-columns: 1fr; }
+      }
+      .flyer-card{
+        margin: 0;
+      }
+      .flyer-btn{
+        width: 100%;
+        display:block;
+        padding: 0;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: rgba(255,255,255,.02);
+        cursor: pointer;
+        overflow: hidden;
+        box-shadow: 0 18px 40px rgba(0,0,0,.35);
+        transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+      }
+      .flyer-btn:hover{
+        transform: translateY(-3px);
+        border-color: rgba(214,177,90,.40);
+        box-shadow: 0 22px 52px rgba(0,0,0,.45);
+      }
+      .flyer-btn:focus-visible{
+        outline: 2px solid rgba(214,177,90,.70);
+        outline-offset: 4px;
+      }
+      .flyer-btn img{
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        display:block;
+      }
+      .flyer-cap{
+        margin-top: 10px;
+        font-weight: 850;
+        letter-spacing: -.01em;
+        color: rgba(241,241,247,.92);
+        line-height: 1.25;
+      }
+      .flyer-meta{
+        display:block;
+        margin-top: 4px;
+        font-weight: 600;
+        font-size: .92rem;
+        color: rgba(241,241,247,.62);
+      }
+
+      /* Lightbox */
+      .lightbox{
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: clamp(14px, 3vw, 26px);
+        z-index: 1000;
+      }
+      .lightbox[aria-hidden="false"]{ display:flex; }
+
+      .lightbox-backdrop{
+        position:absolute;
+        inset:0;
+        background: rgba(0,0,0,.78);
+        backdrop-filter: blur(8px);
+      }
+
+      .lightbox-panel{
+        position: relative;
+        width: min(980px, 100%);
+        max-height: 86vh;
+        border-radius: 18px;
+        border: 1px solid rgba(214,177,90,.42);
+        background:
+          linear-gradient(180deg, rgba(18,18,26,.88), rgba(11,11,16,.90));
+        box-shadow:
+          0 40px 90px rgba(0,0,0,.75),
+          0 0 0 1px rgba(242,208,138,.14) inset;
+        overflow: hidden;
+      }
+
+      .lightbox-top{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap: 12px;
+        padding: 12px 14px;
+        border-bottom: 1px solid rgba(214,177,90,.18);
+        background: rgba(0,0,0,.20);
+      }
+      .lightbox-title{
+        font-weight: 850;
+        color: rgba(241,241,247,.92);
+        font-size: .98rem;
+        letter-spacing: -.01em;
+      }
+      .lightbox-close{
+        border: 1px solid rgba(214,177,90,.55);
+        background: linear-gradient(90deg, rgba(214,177,90,.18), rgba(242,208,138,.14));
+        color: rgba(241,241,247,.92);
+        border-radius: 999px;
+        padding: .55rem .8rem;
+        font-weight: 900;
+        cursor: pointer;
+      }
+      .lightbox-close:hover{ filter: brightness(1.05); }
+
+      .lightbox-body{
+        padding: 14px;
+        overflow: auto;
+        max-height: calc(86vh - 54px);
+      }
+      .lightbox-body img{
+        width: 100%;
+        height: auto;
+        border-radius: 14px;
+        border: 1px solid rgba(214,177,90,.22);
+        background: rgba(255,255,255,.02);
+      }
+
 
       .reel{
         margin-top: 14px;
@@ -879,9 +1008,7 @@ background-repeat: no-repeat;
       <div class="container">
         <div class="section-head">
           <h2>About Donnie</h2>
-          <p class="lede">
-           
-          </p>
+          
         </div>
 
         <div class="about-proof-grid">
@@ -931,9 +1058,39 @@ background-repeat: no-repeat;
               </figure>
             </div>
           </div>
+            <div class="flyers">
+              <h3>
+                Selected Engagements
+              </h3>
+              <p class="lede">Recent and past engagements (posters/productions). References available on request.</p>
+              <hr>
+              <div id="engagements" class="flyer-grid">
+              <figure class="flyer-card">
+                <button class="flyer-btn" type="button" data-lightbox="event1.jpg" aria-label="Open flyer: The Velvet Note — Groove Centric Holiday Show (Dec 30)">
+                  <img loading="lazy" src="event1.jpg" alt="The Velvet Note presents Groove Centric Holiday Show flyer">
+                </button>
+                <figcaption class="flyer-cap">The Velvet Note — Groove Centric Holiday Show <span class="flyer-meta">(Dec 30 • Alpharetta, GA)</span></figcaption>
+              </figure>
+
+              <figure class="flyer-card">
+                <button class="flyer-btn" type="button" data-lightbox="event2.jpg" aria-label="Open flyer: Chapel of Fairfield Baptist Church — Birthday Concert (Aug 23)">
+                  <img loading="lazy" src="event2.jpg" alt="Birthday Concert flyer at Chapel of Fairfield Baptist Church">
+                </button>
+                <figcaption class="flyer-cap">Chapel of Fairfield Baptist Church — Birthday Concert <span class="flyer-meta">(Aug 23 • Lithonia, GA)</span></figcaption>
+              </figure>
+
+              <figure class="flyer-card">
+                <button class="flyer-btn" type="button" data-lightbox="event4.jpg" aria-label="Open flyer: City Winery Atlanta — Groove Centric (Nov 6)">
+                  <img loading="lazy" src="event4.jpg" alt="City Winery Atlanta Groove Centric flyer">
+                </button>
+                <figcaption class="flyer-cap">City Winery Atlanta — Groove Centric <span class="flyer-meta">(Nov 6 • Atlanta, GA)</span></figcaption>
+              </figure>
+</div>
+              <p class="meta">Event references available (venue coordinators / planners)</p>
+            </div>
         </div>
 
-      </div>
+      </div>  
     </section>
 
         <!-- piano divider-->
@@ -1127,6 +1284,21 @@ background-repeat: no-repeat;
       </div>
       <!-- again replace with REAL domain name -->
     </footer>
+
+    <!-- Lightbox (flyers) -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Flyer preview">
+      <div class="lightbox-backdrop" data-lightbox-close></div>
+      <div class="lightbox-panel" role="document">
+        <div class="lightbox-top">
+          <div id="lightboxTitle" class="lightbox-title">Flyer</div>
+          <button class="lightbox-close" type="button" data-lightbox-close>Close</button>
+        </div>
+        <div class="lightbox-body">
+          <img id="lightboxImg" src="" alt="">
+        </div>
+      </div>
+    </div>
+
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1236,6 +1408,62 @@ background-repeat: no-repeat;
             setTimeout(loadPiano, 1500);
           }
         }
+
+        // Flyers lightbox
+        (function initFlyerLightbox(){
+          var lb = document.getElementById("lightbox");
+          var lbImg = document.getElementById("lightboxImg");
+          var lbTitle = document.getElementById("lightboxTitle");
+          if (!lb || !lbImg) return;
+
+          var triggers = Array.prototype.slice.call(document.querySelectorAll("[data-lightbox]"));
+          var closeEls = Array.prototype.slice.call(document.querySelectorAll("[data-lightbox-close]"));
+          var lastFocus = null;
+
+          function openLightbox(src, titleText, altText){
+            lastFocus = document.activeElement;
+            lbImg.src = src;
+            lbImg.alt = altText || titleText || "Flyer";
+            lbTitle.textContent = titleText || "Flyer";
+            lb.setAttribute("aria-hidden", "false");
+            document.body.style.overflow = "hidden";
+
+            // Focus the close button for accessibility
+            var closeBtn = lb.querySelector("[data-lightbox-close]");
+            if (closeBtn) closeBtn.focus();
+          }
+
+          function closeLightbox(){
+            if (lb.getAttribute("aria-hidden") === "true") return;
+            lb.setAttribute("aria-hidden", "true");
+            lbImg.src = "";
+            document.body.style.overflow = "";
+            if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
+          }
+
+          triggers.forEach(function(btn){
+            btn.addEventListener("click", function(){
+              var src = btn.getAttribute("data-lightbox");
+              var fig = btn.closest("figure");
+              var cap = fig ? fig.querySelector(".flyer-cap") : null;
+              var titleText = cap ? cap.childNodes[0].textContent.trim() : "Flyer";
+              var img = btn.querySelector("img");
+              openLightbox(src, titleText, img ? img.alt : titleText);
+            });
+          });
+
+          closeEls.forEach(function(el){
+            el.addEventListener("click", closeLightbox);
+          });
+
+          window.addEventListener("keydown", function(e){
+            if (lb.getAttribute("aria-hidden") === "false" && (e.key === "Escape" || e.key === "Esc")) {
+              e.preventDefault();
+              closeLightbox();
+            }
+          });
+        })();
+
       })();
     </script>
   </body>
