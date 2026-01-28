@@ -62,7 +62,15 @@
       }
 
       *{ box-sizing:border-box; }
-      html{ scroll-behavior:smooth; }
+      
+      /* Responsive media defaults */
+      img, svg, video {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+html{ scroll-behavior:smooth; }
       body{
         margin:0;
         font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
@@ -283,7 +291,98 @@
       }
       #services .price .service-img{ margin-left: auto; }
 
-      @media (max-width: 920px){
+      
+
+      /* About image */
+      .about-img{
+        width: 100%;
+        height: auto;
+        border-radius: 16px;
+        border: 1px solid var(--line);
+        background: rgba(255,255,255,.02);
+        margin-top: 12px;
+      }
+
+
+
+      /* About: proof layout */
+      .about-proof-grid{
+        display:grid;
+        grid-template-columns: 1.05fr .95fr;
+        gap: 18px;
+        align-items:start;
+      }
+      @media (max-width: 900px){
+        .about-proof-grid{ grid-template-columns: 1fr; }
+      }
+
+      .proof-bullets{
+        margin: 12px 0 0 0;
+        padding-left: 18px;
+      }
+      .proof-bullets li{ margin: 8px 0; color: rgba(241,241,247,.74); }
+
+      .proof-stats{
+        display:grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 14px;
+      }
+      @media (max-width: 480px){
+        .proof-stats{ grid-template-columns: 1fr; }
+      }
+      .stat{
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 10px 12px;
+        background: rgba(255,255,255,.02);
+      }
+      .stat .k{ display:block; font-weight: 800; font-size: 1.05rem; }
+      .stat .s{ display:block; font-size: .86rem; opacity: .8; }
+
+      .media-grid{
+        display:grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-top: 10px;
+      }
+      .media{
+        margin: 0;
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: rgba(255,255,255,.02);
+      }
+      .media img{ width:100%; height: 160px; object-fit: cover; }
+      @media (max-width: 480px){
+        .media img{ height: 140px; }
+      }
+
+      .poster-grid{
+        display:grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 12px;
+      }
+      .poster-grid img{
+        width:100%;
+        height: 110px;
+        object-fit: cover;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: rgba(255,255,255,.02);
+      }
+
+      .reel{
+        margin-top: 14px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        overflow: hidden;
+        background: rgba(255,255,255,.02);
+      }
+      .reel video{ width:100%; height:auto; display:block; }
+
+@media (max-width: 920px){
         #services .service-img{
           max-width: 100%;
           margin: 12px 0 10px 0;
@@ -408,15 +507,17 @@
 
       #piano {
         display: block;
-        width: 99%;
-        height: 30vh;
-
+        width: 100%;
+        height: clamp(140px, 22vw, 280px);
+        max-width: none;
+        margin: 0 auto;
 
         background-image: url(piano.svg);
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
 }
+
 
 
       /* Responsive */
@@ -620,30 +721,66 @@
           </p>
         </div>
 
-        <div class="about-grid">
+        <div class="about-proof-grid">
+          <!-- Left: copy + proof bullets -->
           <div class="flat-card">
-            <h3>What you get</h3>
+            <h3>About Donnie</h3>
             <p class="lede" style="margin-top:0;">
-            
-              <img loading="lazy" width="inherit" height="500vh" src="donniepose.jpg" alt="Donnie (D-Major)">
-          </div>
+              Atlanta-based keys and bandleader delivering polished R&amp;B, jazz, funk, and gospel — built for weddings,
+              corporate events, and upscale parties.
+            </p>
 
-          <div class="flat-card">
-            <h3>Best for</h3>
-            <p class="lede" style="margin-top:0;">
-             (Donnie's bio and achievements,) 
-             Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br>
-             Labore laudantium voluptate id voluptates porro voluptatem cupiditate tempore, voluptas ut ad beatae sint. Explicabo omnis officia sed quae magnam illo quam!
-            </p>
-            </p>
+            <ul class="proof-bullets" aria-label="Credibility highlights">
+              <li><strong>Pro-ready:</strong> punctual setup, clean stage look, event-friendly volume</li>
+              <li><strong>Flexible formats:</strong> solo keys, duo, or full band</li>
+              <li><strong>Repertoire:</strong> classics + modern favorites; custom requests welcome</li>
+              <li><strong>Experience:</strong> private events, venues, and ticketed shows</li>
+            </ul>
+
+            <div class="proof-stats" aria-label="Quick stats">
+              <div class="stat"><span class="k">10+ yrs</span><span class="s">Performing</span></div>
+              <div class="stat"><span class="k">100+ events</span><span class="s">Booked</span></div>
+              <div class="stat"><span class="k">Fast replies</span><span class="s">24–48 hrs</span></div>
+            </div>
 
             <div class="accent-rule" aria-hidden="true" style="margin: 16px 0 12px 0;"></div>
 
             <p class="small" style="margin:0;">
-              Booking philosophy: pick a package, lock the date, then refine the setlist and flow.
+              Booking is simple: pick a package, lock the date, then refine details (set list, timing, travel).
             </p>
           </div>
+
+          <!-- Right: media proof -->
+          <div class="flat-card">
+            <h3>Proof</h3>
+
+            <!-- <div class="media-grid" aria-label="Performance photos">
+              <figure class="media">
+                <img loading="lazy" src="donniekeys.jpg" alt="Donnie performing on keys">
+              </figure>
+              <figure class="media">
+                <img loading="lazy" src="donniekeypiano.jpg" alt="Full band performance photo">
+              </figure>
+              <figure class="media">
+                <img loading="lazy" src="doublepianodonnie.jpg" alt="Donnie on stage with lighting">
+              </figure>
+              <figure class="media">
+                <img loading="lazy" src="band3.jpg" alt="Band performance photo">
+              </figure>
+            </div> -->
+
+            <div class="poster-grid" aria-label="Selected show flyers">
+              <img loading="lazy" src="event1.jpg" alt="Event flyer">
+              <img loading="lazy" src="event2.jpg" alt="Event flyer">
+              <img loading="lazy" src="event3.jpg" alt="St. James Live">
+            </div>
+
+            <!-- <p class="small" style="margin:10px 0 0 0; opacity:.85;">
+              Short reel — live keys + band moments.
+            </p> -->
+          </div>
         </div>
+
       </div>
     </section>
 
